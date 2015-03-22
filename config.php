@@ -19,11 +19,13 @@ $dbUser = "13574007_02";
 //Database user's password:
 $dbPass = "Zwierzaki2015";
 
+global $connection;
+
 try {
     $connection = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo "Connection established";
-    require_once 'database.php';    
+    require_once 'database.php';     
 } catch (Exception $ex) {
     echo "Connection failed : <br/>" . $ex->getMessage();
 }

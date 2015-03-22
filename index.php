@@ -11,7 +11,10 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        require 'config.php';
+        
+             
+            require_once 'config.php'; 
+
         ?>
     </body>
 </html>
