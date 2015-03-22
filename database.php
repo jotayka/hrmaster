@@ -7,16 +7,29 @@
  */
 
 
-$table1 = "hrUsers";
-$columns1 = "ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY, surname VARCHAR(200 NOT NULL), name VARCHAR( 250 ) NOT NULL,
- email VARCHAR( 150 ) NOT NULL" ;
-
-
-$createTable = $connection->exec("CREATE TABLE IF NOT EXISTS mydb.$table1 ($columns1)");
-
-if ($createTable) 
-{
-    echo "Table $table1 - Created!<br /><br />";
+$table1 = "HRUSERS";
+$sql ="CREATE table HRUSERS(
+     ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
+     NAZWISKO VARCHAR( 50 ) NOT NULL, 
+     IMIE VARCHAR( 250 ) NOT NULL,
+     LOGIN VARCHAR ( 250 ) NOT NULL,
+     PASSWORD VARCHAR ( 250 ) NOT NULL,
+     EMAIL VARCHAR( 250 ) NOT NULL,
+     TELEFON INT,
+     ODDZIAL VARCHAR ( 250 ) NOT NULL,
+     CZAS TIMESTAMP,
+     ZABLOKOWANY VARCHAR( 25 ),
+     UPRAWNIENIA TINYINT NOT NULL
+     )";
+     
+try {
+    $connection->exec($sql);
+    print("<br/>Created $table1 Table.<br/>");
+} catch (Exception $ex) {
+    echo "Tabel " . $table1 . " not created : <br/>" . $ex->getMessage();
 }
-else { echo "Table $table1 not successfully created! <br /><br />";
-}
+    
+    
+    
+    
+     
